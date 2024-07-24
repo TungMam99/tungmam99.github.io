@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-container,
+.task-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/*label {
+    margin-bottom: 5px;
+    text-align: right;
+    margin-right: 10px;
+    width: 45%;
+}*/
+label {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input,
+select {
+    margin-bottom: 15px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+.main-button {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.form-group input,
+.form-group select {
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.main-button {
+    margin: 0 10px;
+    width: 40%;
+}

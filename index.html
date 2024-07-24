@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forklift Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <h1>Warehouse Admin Login</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <div class="task-container" id="taskContainer" style="display:none;">
+        <h1>Warehouse Manager</h1>
+        <form id="taskForm">
+            <div class="form-group">
+                <label for="jobId">Job ID:</label>
+                <input type="text" id="jobId" name="jobId" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="jobDescription">Job Description:</label>
+                <input type="text" id="jobDescription" name="jobDescription" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="workOrder">Select Work Order:</label>
+                <select id="workOrder" name="workOrder" onchange="updateProductDetails()">
+                    <option value="">-- Select Work Order --</option>
+                    <option value="WO001">WO001 – Heneiken Silver Can Carton 24x330ml</option>
+                    <option value="WO002">WO002 – Tiger Crystal Can Carton 24x330ml</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="productName">Product Description:</label>
+                <select id="productName" name="productName" onchange="updateProductCode()">
+                    <option value="">-- Select Product --</option>
+                    <option value="Heneiken Silver Can Carton 24x330ml">Heneiken Silver Can Carton 24x330ml</option>
+                    <option value="Tiger Crystal Can Carton 24x330ml">Tiger Crystal Can Carton 24x330ml</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="productId">Product ID:</label>
+                <input type="text" id="productId" name="productId" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="plantId">Plant Id:</label>
+                <input type="text" id="plantId" name="plantId" value="VN-HVT" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="productionLine">Production Line:</label>
+                <input type="text" id="productionLine" name="productionLine" value="Prd Line 1" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="productionDate">Production Date:</label>
+                <input type="text" id="productionDate" name="productionDate" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="lotcode">Lotcode:</label>
+                <input type="text" id="lotcode" name="lotcode" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="expirationDate">Expiration Date:</label>
+                <input type="text" id="expirationDate" name="expirationDate" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label for="forkliftName">Forklift Name:</label>
+                <select id="forkliftName" name="forkliftName">
+                    <option value="FLD01">FLD01 - Trần Duy Nhất</option>
+                    <option value="FLD02">FLD02 - Nguyễn Văn Ba</option>
+                    <option value="FLD03">FLD03 - Đinh Anh Năm</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="jobDate">Job Date:</label>
+                <input type="date" id="jobDate" name="jobDate">
+            </div>
+            
+            <div class="form-group">
+                <label for="shift">Shift:</label>
+                <select id="shift" name="shift">
+                    <option value="morning">Morning (06 to 14)</option>
+                    <option value="afternoon">Afternoon (14 to 22)</option>
+                    <option value="night">Night (22 to 06)</option>
+                    <option value="day">Day (06 to 15)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="pickUpBin">Pick-up Bin:</label>
+                <select id="pickUpBin" name="pickUpBin">
+                    <option value="13106_LH">13106_LH</option>
+                    <option value="20106_VT">20106_VT</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="pickUpQuantity">Pick-up Quantity:</label>
+                <input type="number" id="pickUpQuantity" name="pickUpQuantity" oninput="calculatePallets()">
+            </div>
+            
+            <div class="form-group">
+                <label for="pallets">Pallets:</label>
+                <input type="text" id="pallets" name="pallets" readonly>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" onclick="createNewTask()" class="main-button">New</button>
+                <button type="button" onclick="saveTask()" class="main-button">Assign Job</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
